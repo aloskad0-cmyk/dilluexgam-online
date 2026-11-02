@@ -1,0 +1,19 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dilluexGAM</title><link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet"></head><body>
+<canvas id="gl"></canvas>
+<main id="ui">
+<section id="auth" class="screen"><h1>dilluexGAM</h1><div class="card">
+<input id="a-user" placeholder="Kullanıcı adı (sadece kayıtta)"><input id="a-mail" type="email" placeholder="E-posta"><input id="a-pass" type="password" placeholder="Şifre">
+<div class="row"><button class="b coral" id="a-login">Giriş yap</button><button class="b cyan" id="a-reg">Kayıt ol</button></div><p id="a-err" class="err"></p></div></section>
+<section id="menu" class="screen hidden"><div class="top"><span id="m-me"></span><span id="m-online"></span></div>
+<div class="grid"><button class="tile-btn t1" data-go="okey">101 OKEY</button><button class="tile-btn t2" data-go="monopoly">MONOPOLY</button>
+<button class="tile-btn t3" data-go="lobby">ONLINE ODALAR</button><button class="tile-btn t4" data-go="friends">ARKADAŞLAR</button>
+<button class="tile-btn t5" data-go="profile">PROFİLİM</button><button class="tile-btn t6" data-go="settings">AYARLAR</button></div><div id="m-panel" class="card hidden"></div></section>
+<section id="lobby" class="screen hidden"><div class="top"><button class="b ghost" data-go="menu">← Menü</button><span id="l-online"></span></div>
+<div class="card"><div class="row"><button class="b coral" id="c-okey">101 Okey odası kur</button><button class="b cyan" id="c-mono">Monopoly odası kur</button><label><input type="checkbox" id="c-priv"> Özel oda</label></div>
+<div class="row"><input id="j-code" placeholder="Oda kodu" maxlength="5"><button class="b lime" id="j-go">Koda katıl</button></div><p id="l-err" class="err"></p></div>
+<div class="card"><h3>Açık odalar</h3><div id="l-list"></div></div></section>
+<section id="room" class="screen hidden"><div id="r-wait" class="card"></div><div id="r-game" class="hidden"></div></section>
+</main><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="/socket.io/socket.io.js"></script><script src="app.js"></script></body></html>

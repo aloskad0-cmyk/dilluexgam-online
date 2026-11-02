@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  pass_hash TEXT NOT NULL,
+  avatar TEXT NOT NULL DEFAULT '#ff5d73',
+  games INT NOT NULL DEFAULT 0,
+  wins INT NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS history (
+  id SERIAL PRIMARY KEY,
+  game TEXT NOT NULL,
+  players JSONB NOT NULL,
+  result JSONB NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS history_players_idx ON history USING GIN (players);
